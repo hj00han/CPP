@@ -1,0 +1,57 @@
+/***********************************************************************
+Name : Hyunjoo Han
+Email : hhan39@myseneca.ca
+ID : 132749227
+Date of completion : 10/16/2023
+***********************************************************************/
+In this workshop, I was introduced to the Operator Overloading which allows me to define the behavior of operators. I learned that I can give different behaviors to operators when they are used with objects of a class I define and keyword is 'operator'. I got to practice create many operator overloading. 
+
+First of all I created type conversion operators. These operators allow instances of the class to be used in contexts where a double, const char*, char, int, or bool is expected.
+<p1>
+1.operator bool() const; 
+- I created this conversion operator that returns a Boolean value (true or false) depending on a certain condition. First, I initialized a variable with the minimum fuel value. Then, I checked if the object has more than 0 passengers and if the fuel is greater than the minimum required.
+2.operator int() const;
+- This will convert the object to an integer by returning the value of m_passenger.
+3.operator double() const;
+- This will convert the object to a double by returning the value of m_fuel.
+4.operator const char* () const;
+- This will convert the object to a const char* by returning the value of m_title
+<p2>
+1.operator double() const;
+2.operator const char* () const;
+3.operator char() const;
+4.operator bool() const;
+These are very similar to the part1 conversion operators. Each of them converts the object to a specific type by returning the value of a class member. However, operator 4 includes a condition that checks if m_type has a specific value.
+
+There is unary member operators here. Unary member operators act only on a single operand. 
+   bool operator ~() const;
+For both part 1 and part 2, I define this unary member operator. This operator takes only one operand, which will be an object, and returns a boolean value depending on the condition.
+
+Furthermore, I define a lot of binary member operators which take two operands. Usually, the left operand is the current object that we try to make changes, the right operand is what we try to apply on current object.
+-p1
+1.Flight& operator =(Flight& rightOp);
+2.Flight& operator =(int rightPss);
+3.Flight& operator =(double rightFuel);
+4.Flight& operator +=(double addFuel);
+5.Flight& operator +=(int addPss);
+6.Flight& operator -=(double reduceFuel);
+7.Flight& operator -=(int reducePss);
+8.Flight& operator <<(Flight& movePss);
+9.Flight& operator >>(Flight& movePss);
+10.int operator +(const Flight& rightOp);
+-p2
+1.Portfolio& operator +=(double value);
+2.Portfolio& operator -=(double value);
+3.Portfolio& operator <<(Portfolio& rightOp);
+4.Portfolio& operator >>(Portfolio& rightOp);
+All of above are the binary member operators that I had to define. As I mentioned, most of these modify the left operand. But 8.from p1, 4.from p2 have different behavior. These modify the right operand.
+
+Finally, I define a few helper operators that is not member of the class. While they are outside of the class, they access the class by having it be one of its parameter. This enable interactions between objects and primitive types.
+-p1
+int operator +=(int& leftOp, const Flight& rightOp);
+-p2
+double operator +(const Portfolio& leftOp, const Portfolio& rightOp);
+double operator +=(double& value, const Portfolio& rightOp);
+These are the hyper operators that I defined in this workshop. 
+
+While practicing defining all of these operators, I could see some benefits of them. These are like custom made operator. They contribute to code readability because we are already familiar with the standard operators (unless I intentionally make the operator behave very differently). Additionally, the code appears clearer as it becomes more concise while still reflecting the intended behavior.

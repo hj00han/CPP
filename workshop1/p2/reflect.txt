@@ -1,0 +1,11 @@
+***********************************************************************
+<Reflection>
+Name : Hyunjoo Han
+Email : hhan39@myseneca.ca
+ID : 132749227
+Date of completion : 9/19/2023
+***********************************************************************
+
+In this workshop, I could understand the concept of modules and how they work together to form an application(project). By organizing the source code into different header and implementation files, I was able to make the code more manageable and encapsulate functions. Because I had done this already, I could reuse the 'cStrTools' from part1 again for part2.
+Adding safeguards to the header file to prevent multiple inclusions was a new and different concept for me. Therefore, I tried to understand why it is necessary to add them to the files. In the process, I also could understand the compilation process. I encountered a compilation error due to my source-code editor not linking all the files together. While trying to fix this problem, I came to understand why it is important for each module to include the correct header file. This is crucial because it allows the main function to access other modules for function definitions and data. My source-code editor was giving me an error saying that the definition of the functions ion the main module couldn't be found, which I assumed meant it couldn't access other modules. 
+While I was making 'Phone' module for part2, I needed to review how to handle files in the code again as well as get used to use new output/input object. However mainly, I've learnt more about general concept of Module.
