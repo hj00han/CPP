@@ -1,3 +1,12 @@
+/***********************************************************************
+Name : Hyunjoo Han
+Email : hhan39@myseneca.ca
+ID : 132749227
+Date of completion : 11/02/2023
+
+I have done all the coding by myself and only copied the code that
+my professor provided to complete my workshops and assignments.
+***********************************************************************/
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <cstring>
@@ -25,11 +34,14 @@ namespace sdds {
 	void HealthCard::extractChar(istream& istr, char ch) const {
 		char next;
 		next = istr.peek();
+		//See if the next character in the buffer is same as 'ch' argument
 		if (next == ch) {
 			istr.ignore();
 		}
 		else {
+			//Ignore remaining charactoers up to 1000 characters or 'ch'
 			istr.ignore(10000, ch);
+			//Set the istream into a fail state
 			istr.setstate(ios::failbit);
 		}
 	}
@@ -39,6 +51,7 @@ namespace sdds {
 	}
 	
 	void HealthCard::set(const char* name, long long number, const char vCode[], const char sNumber[]) {
+		//Calling member function to validate argumnets
 		bool valid = validID(name, number, vCode, sNumber);
 		if (valid) {
 			allocateAndCopy(name);
@@ -51,27 +64,34 @@ namespace sdds {
 		}
 	}
 
+	//Constructor
 	HealthCard::HealthCard(const char* name, long long number, const char vCode[], const char sNumber[]) {
 		set(name, number, vCode, sNumber);
 	}
 
+	//Copy constructor 
 	HealthCard::HealthCard(const HealthCard& hc) {
 		m_name = nullptr;
-		*this = hc;
+		*this = hc; 
+		//Use copy assignmnet operator overload
 	}
 
+	//Copy Assignment operator overload
 	HealthCard& HealthCard::operator=(const HealthCard& hc) {
 		if (this != &hc) {
+			//Use set function to assign the values
 			set(hc.m_name, hc.m_number, hc.m_vCode, hc.m_sNumber);
 		}
 		return *this;
 	}
 
+	//Destructor
 	HealthCard::~HealthCard() {
 		delete[] m_name;
 		m_name = nullptr;
 	}
 
+	//Conversion operator
 	HealthCard::operator bool() const {
 		return m_name != nullptr;
 	}
@@ -80,6 +100,7 @@ namespace sdds {
 		if (*this) {
 			if (toFile) {
 				ostr << m_name << ",";
+				//print health card ID information by Calling member funtion
 				printIDInfo(ostr);
 				ostr << endl;
 			}
@@ -95,6 +116,7 @@ namespace sdds {
 	}
 
 	istream& HealthCard::read(istream& istr) {
+		//Temp local variables to get input
 		char name[MaxNameLength + 1];
 		long long number;
 		char vCode[3];
@@ -107,12 +129,12 @@ namespace sdds {
 		istr.get(vCode, 3, ',');
 		extractChar(istr, ',');
 		istr.get(sNumber, 10, '\n');
-		//extractChar(istr, '\n');
 		if (istr) {
+			//Assign the inputs
 			set(name, number, vCode, sNumber);
 		}
 		istr.clear();
-		istr.ignore(500, '\n');
+		istr.ignore(1000, '\n');
 		return istr;
 	}
 
@@ -130,3 +152,5 @@ namespace sdds {
 		return hc.read(istr);
 	}
 }
+
+ 

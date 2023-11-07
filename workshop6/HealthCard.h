@@ -1,3 +1,12 @@
+/***********************************************************************
+Name : Hyunjoo Han
+Email : hhan39@myseneca.ca
+ID : 132749227
+Date of completion : 11/02/2023
+
+I have done all the coding by myself and only copied the code that
+my professor provided to complete my workshops and assignments.
+***********************************************************************/
 #ifndef SDDS_HEALTHCARD_H
 #define SDDS_HEALTHCARD_H
 
@@ -15,6 +24,7 @@ namespace sdds {
         std::ostream& printIDInfo(std::ostream& ostr)const;
         void set(const char* name, long long number, const char vCode[], const char sNumber[]);
     public:
+        //Default value -> empty so that it can be called without argrment
         HealthCard(const char* name = nullptr, long long number = 0, const char vCode[] = {}, const char sNumber[] = {});
         HealthCard(const HealthCard& hc);
         HealthCard& operator=(const HealthCard& hc);
@@ -27,3 +37,5 @@ namespace sdds {
     std::istream& operator>>(std::istream& istr, HealthCard& hc);
 }
 #endif // !SDDS_HealthCard_H
+ 
+ 
