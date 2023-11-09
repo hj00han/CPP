@@ -1,9 +1,9 @@
 /***********************************************************************
-Final Project Milestone 1
+Final Project Milestone 2
 Name : Hyunjoo Han
 Email : hhan39@myseneca.ca
 ID : 132749227
-Date of completion : 11/02/2023
+Date of completion : 11/09/2023
 
 I have done all the coding by myself and only copied the code that
 my professor provided to complete my workshops and assignments.
@@ -72,14 +72,16 @@ namespace sdds {
         int input;
         if (prompt != nullptr) {
             cout << prompt;
-            while (invalid) {
-                cin >> input;
-                if (cin) { //Check if reading input is successful
-                    invalid = false;
-                }
-                else {
-                    cout << "Invalid Integer, retry: ";
-                }
+        }
+        while (invalid) {
+            cin >> input;
+            if (cin) { //Check if reading input is successful
+                invalid = false;
+            }
+            else {
+                cout << "Invalid Integer, retry: ";
+                cin.clear();
+                cin.ignore(100, '\n');
             }
         }
         return input;
@@ -88,24 +90,22 @@ namespace sdds {
     int Utils::getint(int min, int max, const char* prompt, const char* errMes) {
         bool invalid = true;
         int input;
-        if (prompt != nullptr) {
-            cout << prompt;
-            while (invalid) {
-                cin >> input;
-                if (cin && input>=min && input<=max) {
-                    invalid = false;
+        input = getint(prompt);
+        while (invalid) {
+            if (input<min || input>max) {
+                if (errMes == nullptr) {
+                    cout << "Value out of range [" << min << "<=val<=" << max << "]: ";
                 }
                 else {
-                    if (errMes == nullptr) {
-                        cout << "Value out of range [" << min << "<= val <= " << max << "]: ";
-                    }
-                    else {
-                        cout << errMes << ", retry: ";
-                    }
+                    cout << errMes << ", retry: ";
                 }
+                cin >> input;
+            }
+            else {
+                invalid = false;
             }
         }
-        return input;      
+        return input;
     }
-    
+
 }

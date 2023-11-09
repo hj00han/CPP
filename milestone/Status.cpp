@@ -1,9 +1,9 @@
 /***********************************************************************
-Final Project Milestone 1
+Final Project Milestone 2
 Name : Hyunjoo Han
 Email : hhan39@myseneca.ca
 ID : 132749227
-Date of completion : 11/02/2023
+Date of completion : 11/09/2023
 
 I have done all the coding by myself and only copied the code that
 my professor provided to complete my workshops and assignments.
@@ -26,11 +26,11 @@ namespace sdds {
 		}
 		m_statCode = 0;
 	}
-	
+
 	//Rule of three
 	//Copy Constructor
 	Status::Status(const Status& status) {
-		m_statDesc = nullptr;
+		//m_statDesc = nullptr;
 		*this = status;
 	}
 

@@ -3,7 +3,7 @@ Final Project Milestone 2
 Name : Hyunjoo Han
 Email : hhan39@myseneca.ca
 ID : 132749227
-Date of completion : 11/02/2023
+Date of completion : 11/09/2023
 
 I have done all the coding by myself and only copied the code that
 my professor provided to complete my workshops and assignments.
@@ -13,17 +13,22 @@ my professor provided to complete my workshops and assignments.
 namespace sdds {
 	const int MAX_ITEM = 15;
 	class Menu {
-		char* m_menContent;
+		char* m_menContent{};
 		int m_numOfOption;
-		bool m_valid;
 	public:
-		int countOptions(const char* menContent) const; //Functions to count number of options
-		Menu();
-		Menu(const char* menContent);
-		Menu(const Menu& menu);
-		Menu& operator =(const Menu& menu);
+		Menu(const char* menContent = nullptr);
+		Menu(const Menu&) = delete;
+		Menu& operator =(const Menu&) = delete;
 		~Menu();
 		unsigned int run() const;
+		//type conversion operator
+		operator bool() const;
+		//Initialize m_menContent
+		void content(const char* menContent);
 	};
+	//helper function; counting the tab and returns number of options
+	int countOptions(const char* menContent); 
+	//helper function; format the menu and display
+	void displayMenu(const char* menContent, int numOfOptions);
 }
 #endif

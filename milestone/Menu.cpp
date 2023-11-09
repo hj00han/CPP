@@ -3,7 +3,7 @@ Final Project Milestone 2
 Name : Hyunjoo Han
 Email : hhan39@myseneca.ca
 ID : 132749227
-Date of completion : 11/02/2023
+Date of completion : 11/09/2023
 
 I have done all the coding by myself and only copied the code that
 my professor provided to complete my workshops and assignments.
@@ -16,44 +16,14 @@ my professor provided to complete my workshops and assignments.
 
 using namespace std;
 namespace sdds {
-	int Menu::countOptions(const char* menContent) const {
-		int numOptions = 0;
-		if (menContent != nullptr) {
-			while (*menContent) {
-				if (*menContent == '\t') {
-					numOptions++; //Counting tab
-				}
-				menContent++;
-			}
-		}
-		return numOptions + 1; //Number of option = Number of tab + 1
-	}
-	Menu::Menu() {
-		m_menContent = nullptr;
-		m_numOfOption = 0;
-		m_valid = false;
-	}
-
 	Menu::Menu(const char* menContent) {
 		m_numOfOption = countOptions(menContent);
 		if (m_numOfOption > 15 || menContent == nullptr) {
-			m_valid = false;
+			m_menContent = nullptr;
 		}
 		else {
 			ut.alocpy(m_menContent, menContent);
-			m_valid = true;
 		}
-	}
-	Menu::Menu(const Menu& menu) {
-		*this = menu;
-	}
-
-	Menu& Menu::operator =(const Menu& menu) {
-		if (this != &menu) {
-			ut.alocpy(m_menContent, menu.m_menContent);
-			m_numOfOption = menu.m_numOfOption;
-		}
-		return *this;
 	}
 
 	Menu::~Menu() {
@@ -63,15 +33,54 @@ namespace sdds {
 
 	unsigned int Menu::run() const {
 		unsigned int input;
-		if (m_valid) {
-			cout << m_menContent;
+		if (*this) {
+			displayMenu(m_menContent, m_numOfOption);
 			cout << "---------------------------------" << endl << "0- Exit" << endl;
-			input = ut.getint(0, m_numOfOption, ">", "Invalid Integer");
+			input = ut.getint(0, m_numOfOption, "> "); //get Valid input by using a function from Utils module
 		}
 		else {
 			cout << "Invalid Menu!" << endl;
 			input = 0;
 		}
 		return input;
+	}
+
+	Menu::operator bool() const {
+		//return true if the class is in valid state
+		return m_menContent != nullptr; 
+	}
+
+	void Menu::content(const char* menContent) {
+		if (menContent != nullptr) {
+			ut.alocpy(m_menContent, menContent);
+		}
+		//Updating m_numOfOption
+		m_numOfOption = countOptions(menContent);
+	}
+
+	int countOptions(const char* menContent) {
+		int numOptions = 0;
+		if (menContent != nullptr) {
+			while (*menContent) {
+				if (*menContent == '\t') {
+					numOptions++; //Counting tab
+				}
+				menContent++;
+			}
+			numOptions++;//Number of option = Number of tab + 1
+		}
+		return numOptions; 
+	}
+	
+	void displayMenu(const char* menContent, int numOfOption) {
+		for (int i = 0; i < numOfOption; i++) {
+			cout << i + 1 << "- ";
+			while (*menContent != '\t' && *menContent != '\0') {
+				cout << *menContent;
+				menContent++;
+			}
+			cout << endl;
+			menContent++;
+		}
 	}
 }

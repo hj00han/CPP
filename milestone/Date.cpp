@@ -1,9 +1,9 @@
 /***********************************************************************
-Final Project Milestone 1
+Final Project Milestone 2
 Name : Hyunjoo Han
 Email : hhan39@myseneca.ca
 ID : 132749227
-Date of completion : 11/02/2023
+Date of completion : 11/09/2023
 
 I have done all the coding by myself and only copied the code that
 my professor provided to complete my workshops and assignments.
@@ -24,7 +24,7 @@ namespace sdds {
 		if (Year<currYear || Year>MAX_YEAR) {
 			//Set State member variables by using assignment operator overload
 			State = "Invalid year in date";
-			State = 1; 
+			State = 1;
 		}
 		else if (Month < 1 || Month>12) {
 			State = "Invalid month in date";
@@ -87,11 +87,11 @@ namespace sdds {
 		return State;
 	}
 
-	const Status& Date::state() const{
+	const Status& Date::state() const {
 		return State;
 	}
 
-	Date& Date::formatted(const bool format) { 
+	Date& Date::formatted(const bool format) {
 		Formatted = format;
 		return *this;
 	}
@@ -125,8 +125,8 @@ namespace sdds {
 	std::istream& Date::read(std::istream& istr) {
 		int inputDate;
 		istr >> inputDate;
-		
-		if(istr) {
+
+		if (istr) {
 			int day = inputDate % 100;
 			int month = inputDate / 100 % 100;
 			int year = inputDate / 10000 + 2000;
@@ -146,7 +146,7 @@ namespace sdds {
 		if (!validated) { //Check if reading input was unsucessful or vaidition was failed
 			istr.setstate(ios::badbit);
 		}
-		
+
 		return istr;
 	}
 
