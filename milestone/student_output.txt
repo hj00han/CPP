@@ -1,77 +1,184 @@
-Script started on Sat 04 Nov 2023 10:34:11 AM EDT
-==43493== Memcheck, a memory error detector
-==43493== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==43493== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==43493== Command: ms
-==43493== 
-Status Tester -----------------------------------------------------
-Enter following values :
-abc
-123
--123
-12
-> abc
-Container: (Invalid Integer)
-Error #: 0
-Problem: Invalid Integer
-> 123
-Container: (ERR#1: value too high)
-Error #: 1
-Problem: value too high
-> -123
-Container: (ERR#-1: value too low)
-Error #: -1
-Problem: value too low
-> 12
-Container: (12)
-Date Tester -------------------------------------------------------
-Current Date: 2023/11/04
-Test mode: 
-Current Date formatted (C): 2023/12/09
-Current Date unformatted (C): 231209
-Future Date formatted (F): 2024/02/03
-Future Date unformatted (F): 240203
-The current date is NOT the same as the future date
-The current date is the same as the current date
-The current date is Less than or equal to the future date
-The current date is Less than or equal to the current date
-The current date is Less than the future date
-The future date is greater than or equal to the current date
-The future date is greater than or equal to the future date
-The future date is greater than the current date
---------------
-Assigning the Current date to the future date!
-Now both of the dates are the same!
-Enter the following:
-1- abc
-2- 12
-3- 1212
-4- 121212
-5- 231312
-6- 250229
-7- 240229
-> abc
-Invalid date value
-> 12
-ERR#2: Invalid month in date
-> 1212
-Date enterd: 2023/12/12
-> 121212
-ERR#1: Invalid year in date
-> 231312
-ERR#2: Invalid month in date
-> 250229
-ERR#3: Invalid day in date
-> 240229
-Date enterd: 2024/02/29
-==43493== 
-==43493== HEAP SUMMARY:
-==43493==     in use at exit: 0 bytes in 0 blocks
-==43493==   total heap usage: 24 allocs, 24 frees, 75,897 bytes allocated
-==43493== 
-==43493== All heap blocks were freed -- no leaks are possible
-==43493== 
-==43493== For lists of detected and suppressed errors, rerun with: -s
-==43493== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Script started on Thu 09 Nov 2023 02:59:59 AM EST
+==30825== Memcheck, a memory error detector
+==30825== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==30825== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==30825== Command: ms
+==30825== 
+Enter the following to test MS2:
+ abc
+ 0 
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 0
+--------
+Invalid Menu!
+Testing Invalid Menu: 0
+-----------------------------------------
+Aid Management System
+Date: 2023/12/09
+Data file: No file
 
-Script done on Sat 04 Nov 2023 10:34:35 AM EDT
+1- List Items
+2- Add Item
+3- Remove Item
+4- Update Quantity
+5- Sort
+6- Ship Items
+7- New/Open Aid Database
+---------------------------------
+0- Exit
+> abc
+Invalid Integer, retry: 0
+Exiting Program!
+Aid Management System
+Date: 2023/12/09
+Data file: fakeFileName.csv
+
+1- List Items
+2- Add Item
+3- Remove Item
+4- Update Quantity
+5- Sort
+6- Ship Items
+7- New/Open Aid Database
+---------------------------------
+0- Exit
+> 1
+
+****List Items****
+
+Aid Management System
+Date: 2023/12/09
+Data file: fakeFileName.csv
+
+1- List Items
+2- Add Item
+3- Remove Item
+4- Update Quantity
+5- Sort
+6- Ship Items
+7- New/Open Aid Database
+---------------------------------
+0- Exit
+> 2
+
+****Add Item****
+
+Aid Management System
+Date: 2023/12/09
+Data file: fakeFileName.csv
+
+1- List Items
+2- Add Item
+3- Remove Item
+4- Update Quantity
+5- Sort
+6- Ship Items
+7- New/Open Aid Database
+---------------------------------
+0- Exit
+> 3
+
+****Remove Item****
+
+Aid Management System
+Date: 2023/12/09
+Data file: fakeFileName.csv
+
+1- List Items
+2- Add Item
+3- Remove Item
+4- Update Quantity
+5- Sort
+6- Ship Items
+7- New/Open Aid Database
+---------------------------------
+0- Exit
+> 4
+
+****Update Quantity****
+
+Aid Management System
+Date: 2023/12/09
+Data file: fakeFileName.csv
+
+1- List Items
+2- Add Item
+3- Remove Item
+4- Update Quantity
+5- Sort
+6- Ship Items
+7- New/Open Aid Database
+---------------------------------
+0- Exit
+> 5
+
+****Sort****
+
+Aid Management System
+Date: 2023/12/09
+Data file: fakeFileName.csv
+
+1- List Items
+2- Add Item
+3- Remove Item
+4- Update Quantity
+5- Sort
+6- Ship Items
+7- New/Open Aid Database
+---------------------------------
+0- Exit
+> 6
+
+****Ship Items****
+
+Aid Management System
+Date: 2023/12/09
+Data file: fakeFileName.csv
+
+1- List Items
+2- Add Item
+3- Remove Item
+4- Update Quantity
+5- Sort
+6- Ship Items
+7- New/Open Aid Database
+---------------------------------
+0- Exit
+> 7
+
+****New/Open Aid Database****
+
+Aid Management System
+Date: 2023/12/09
+Data file: fakeFileName.csv
+
+1- List Items
+2- Add Item
+3- Remove Item
+4- Update Quantity
+5- Sort
+6- Ship Items
+7- New/Open Aid Database
+---------------------------------
+0- Exit
+> 8
+Value out of range [0<=val<=7]: 0
+Exiting Program!
+==30825== 
+==30825== HEAP SUMMARY:
+==30825==     in use at exit: 0 bytes in 0 blocks
+==30825==   total heap usage: 4 allocs, 4 frees, 72,893 bytes allocated
+==30825== 
+==30825== All heap blocks were freed -- no leaks are possible
+==30825== 
+==30825== For lists of detected and suppressed errors, rerun with: -s
+==30825== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+Script done on Thu 09 Nov 2023 03:00:08 AM EST
