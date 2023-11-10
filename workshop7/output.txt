@@ -1,9 +1,9 @@
-Script started on Thu 09 Nov 2023 09:13:42 PM EST
-==225256== Memcheck, a memory error detector
-==225256== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==225256== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==225256== Command: ws
-==225256== 
+Script started on Thu 09 Nov 2023 09:30:19 PM EST
+==229360== Memcheck, a memory error detector
+==229360== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==229360== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==229360== Command: ws
+==229360== 
 Container Tester.........................
 Milk: (0cc/250)
 ****: (**cc/***)
@@ -62,13 +62,13 @@ Broken Container, adding aborted! Press <ENTER> to continue....Clearing the brok
 Now pack has Wine: (0cc/9000), 0 in a pack of 12
 Adding 5 to the pack
 Wine: (3750cc/9000), 5 in a pack of 12
-==225256== 
-==225256== HEAP SUMMARY:
-==225256==     in use at exit: 0 bytes in 0 blocks
-==225256==   total heap usage: 1 allocs, 1 frees, 72,704 bytes allocated
-==225256== 
-==225256== All heap blocks were freed -- no leaks are possible
-==225256== 
-==225256== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==229360== 
+==229360== HEAP SUMMARY:
+==229360==     in use at exit: 0 bytes in 0 blocks
+==229360==   total heap usage: 1 allocs, 1 frees, 72,704 bytes allocated
+==229360== 
+==229360== All heap blocks were freed -- no leaks are possible
+==229360== 
+==229360== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
-Script done on Thu 09 Nov 2023 09:13:51 PM EST
+Script done on Thu 09 Nov 2023 09:30:29 PM EST
