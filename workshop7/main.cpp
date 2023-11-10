@@ -69,4 +69,15 @@ void ContainerTest() {
 	cout << endl << "Enter 222" << endl;
 	cin >> C;
 	cout << C << endl;
-	cout
+	cout << endl << "Enter 222" << endl;
+	cin >> C;
+	cout << C << endl;
+	cout << "Trying to read into broken container..." << endl;
+	cin >> B;
+	cout << "Clearing the broken container, setting it to an empty 200 CC water container..." << endl;
+	B.clear(200, "Water");
+	cout << "Adding 150 CCs of water..." << endl;
+	B += 150;
+	cout << "Now the container has: " << endl;
+	cout << B << endl;
+}

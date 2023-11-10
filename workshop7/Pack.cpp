@@ -6,8 +6,12 @@
 using namespace std;
 
 namespace sdds {
+	//*******capacity of container(m_capacity) : size * unitsize*******
+	//*******volume of container(m_volume) : number of unit * unitsize*******
+
 	Pack::Pack(const char* content, int size, int unitSize, int numOfUnit)
-		:Container(content, size*unitSize, numOfUnit*size) {
+		//Container(content, capacity, volumne)
+		:Container(content, size*unitSize, numOfUnit*unitSize) {
 		if (unitSize > 0) {
 			m_unitSize = unitSize;
 		}
@@ -36,28 +40,29 @@ namespace sdds {
 		return capacity() / m_unitSize;
 	}
 
-	void Pack::clear(int packSize, int unitSize, char* content) {
+	void Pack::clear(int packSize, int unitSize, const char* content) {
 		if (unitSize > 0) {
 			Container::clear(packSize*unitSize, content);
 			m_unitSize = unitSize;
 		}
 	}
-	ostream& Pack::print(ostream& ostr) {
+	ostream& Pack::print(ostream& ostr) const {
 		Container::print(ostr);
-		if (this) {
+		if (*this) {
 			ostr << ", " << noOfUnits() << " in a pack of " << size();
 		}
 		return ostr;
 	}
 
 	istream& Pack::read(istream& istr) {
-		bool invalidInput = true;
 		int input;
 		int minVal = 1;
 		int maxVal = size() - noOfUnits();//the number of missing units in the pack
-		if (this) {
+		bool invalidInput = true;
+		if (*this) { //conversion to bool
 			if (noOfUnits() < size()) {
-				cout << this;
+				cout << "Add to ";
+				cout << *this;
 				cout << endl << "> ";
 				while (invalidInput) {
 					istr >> input;
@@ -68,15 +73,17 @@ namespace sdds {
 						cout << "Value out of range [" << minVal << "<=val<=" << maxVal << "]: ";
 					}
 					else {
+						//Add the value when valid input is received
+						cout << "Added " << (*this += input) << endl;
 						invalidInput = false;
 					}
 				}
 			}
 			else {
-				cout << "Pack is full!, press <ENTER> to continue...";
+				cout << "Pack is full!, press <ENTER> to continue..." << endl;
 			}
 		}
-		else {
+		else { //When in invalid state
 			cout << "Broken Container, adding aborted! Press <ENTER> to continue....";
 		}
 		return istr;
