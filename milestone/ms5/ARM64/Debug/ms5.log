@@ -1,0 +1,12 @@
+﻿  AidMan.cpp
+\\mac\Home\Desktop\OOP244\Milestones\ms5\AidMan.cpp(116,8): warning C4101: 'firstNum': unreferenced local variable
+  Date.cpp
+  Item.cpp
+  Menu.cpp
+  Perishable.cpp
+  Status.cpp
+  Utils.cpp
+  iProduct.cpp
+  main51.cpp
+  Generating Code...
+  ms5.vcxproj -> \\Mac\Home\Desktop\OOP244\Milestones\ms5\ARM64\Debug\ms5.exe
