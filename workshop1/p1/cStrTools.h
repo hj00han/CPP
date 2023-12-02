@@ -1,10 +1,3 @@
-/***********************************************************************
-Name : Hyunjoo Han
-Email : hhan39@myseneca.ca
-ID : 132749227
-Date of completion : 9/14/2023
-***********************************************************************/
-
 #ifndef SDDS_cStrTools_H // replace with relevant names
 #define SDDS_cStrTools_H
 

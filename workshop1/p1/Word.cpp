@@ -1,10 +1,3 @@
-/***********************************************************************
-Name : Hyunjoo Han
-Email : hhan39@myseneca.ca
-ID : 132749227
-Date of completion : 9/14/2023
-***********************************************************************/
-
 #define _CRT_SECURE_NO_WARNINGS
 #include <cstdio>
 #include <iostream>
