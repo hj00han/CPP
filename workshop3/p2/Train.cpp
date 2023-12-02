@@ -1,12 +1,3 @@
-/***********************************************************************
-Name : Hyunjoo Han
-Email : hhan39@myseneca.ca
-ID : 132749227
-Date of completion : 10/02/2023
-
-I have done all the coding by myself and only copied the code that
-my professor provided to complete my workshops and assignments.
-***********************************************************************/
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<cstring>
