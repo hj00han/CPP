@@ -1,12 +1,3 @@
-/***********************************************************************
-Name : Hyunjoo Han
-Email : hhan39@myseneca.ca
-ID : 132749227
-Date of completion : 11/22/2023
-
-I have done all the coding by myself and only copied the code that
-my professor provided to complete my workshops and assignments.
-***********************************************************************/
 #ifndef _GRADUATE_H_
 #define _GRADUATE_H_
 #include "Student.h"
