@@ -1,25 +1,3 @@
-/***********************************************************************
-Name : Hyunjoo Han
-Email : hhan39@myseneca.ca
-ID : 132749227
-Date of completion : 10/16/2023
-
-I have done all the coding by myself and only copied the code that
-my professor provided to complete my workshops and assignments.
-***********************************************************************/
-
-/***********************************************************************
-// OOP244 Workshop #5 DIY (part 2): tester program
-//
-// File  Portfolio.cpp
-// Version 1.0
-// Author   Asam Gulaid, revised by Fardad Soleimanloo
-// Description
-//
-// Revision History
-// -----------------------------------------------------------
-// Name                 Date            Reason
-***********************************************************************/
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <cstring>
