@@ -147,8 +147,8 @@ namespace sdds {
 	std::istream& operator>>(std::istream& istr, Date& date) {
 		return date.read(istr);
 	}
-
-	int Date::dateNoFormat()const {
+	
+	/*int Date::dateNoFormat()const {
 		return (Year - 2000) * 10000 + Month * 100 + Day;
-	}
+	}*/
 }
